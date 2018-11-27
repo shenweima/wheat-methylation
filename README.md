@@ -70,7 +70,7 @@ samtools merge -@ 6 out.bam in1.bam in2.bam in3.bam
 ```shell
 samtools sort -@ 10 -o out.bam in.bam
 ```
-#### Split bam file by chromosome
+#### Split bam file according to chromosome
 ```shell
 for i in `samtools view -H cs_leaf2_sorted.bam | awk -F"\t" '/@SQ/{print $2}' |  cut -d":" -f2`; do samtools view -h -F 0x4 cs_leaf2_sorted.bam $i | samtools view -hbS - > cs_leaf2_sorted.$i.bam ; done
 ```
