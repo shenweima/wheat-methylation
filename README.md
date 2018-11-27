@@ -4,7 +4,7 @@
 The data used in this study came from [SRP133674](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA436361). If you use this data in your study, you could refer this information.  International Wheat Genome Sequencing Consortium (IWGSC). et al., "Shifting the limits in wheat research and breeding using a fully annotated reference genome.", Science, 2018 Aug 16;361(6403)
 
 #### Download data
-we can get website of fastq files from [PRJNA436361](https://www.ebi.ac.uk/ena/data/view/PRJNA436361) and save it in download.txt
+we can get website of fastq files from [PRJNA436361](https://www.ebi.ac.uk/ena/data/view/PRJNA436361) and save them in download.txt
 ```shell
 for i in $(cat download.txt); do axel -n 20 -a $i; done
 ```
@@ -18,7 +18,7 @@ python2 ./bs_seeker2-build.py -f /data2/Index/161010_Chinese_Spring_v1.0_pseudom
 for i in $(cat input.txt); do fastp -p -w 8 -l 30 -i ${i}_1.fastq.gz -I ${i}_2.fastq.gz -o ${i}_1.filter.fq.gz -O ${i}_2.filter.fq.gz -h ${i}.html; done
 ```
 #### Mapping reads to wheat genome
-Here, The paired-end reads were viewed as single end reads.Large fastq file was splitted using seqkit tool and antisense of second reads were obtained using seqkit tool.
+Here, The paired-end reads were viewed as single end reads. Large fastq file was splitted using seqkit tool and antisense of second reads were obtained using seqkit tool.
 ```python
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
@@ -75,8 +75,7 @@ samtools sort -@ 10 -o out.bam in.bam
 for i in `samtools view -H cs_leaf2_sorted.bam | awk -F"\t" '/@SQ/{print $2}' |  cut -d":" -f2`; do samtools view -h -F 0x4 cs_leaf2_sorted.bam $i | samtools view -hbS - > cs_leaf2_sorted.$i.bam ; done
 ```
 #### Call methylation
-Use the python script to call methylation in parallel
-this step will be generated three files(bw, CGmap,ATCGmap)
+Use the python script to call methylation in parallel. this step will be generated three files(bw, CGmap,ATCGmap)
 ```python
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
