@@ -32,7 +32,7 @@ from concurrent.futures import ThreadPoolExecutor as Pool
 def task(fq):
     proc = subprocess.Popen(['/root/software/BSseeker2/bs_seeker2-align.py', '-i', fq, '-g', '/data2/Fshare/FastaAndIndex/IWGSC_v1.0_bwa/161010_Chinese_Spring_v1.0_pseudomolecules_parts.fasta', '-d', '/data2/Fshare/FastaAndIndex/bs_seeker2_index/', '--temp_dir=/data2/user_data/temp/', '--XSteve', '--aligner=bowtie2', '--bt2-p', '4', '--bt2--end-to-end', '--bt2--very-sensitive', '--bt2--dovetail', '-o', fq.split('fq')[0] + 'bam'], shell=False)
     proc.wait()
-    print ('Finish mapping' + fq)
+    print ('Finish mapping ' + fq)
 
     
 if __name__ == '__main__':
@@ -90,7 +90,7 @@ def task(bam):
     print (bam)
     proc = subprocess.Popen(['/root/software/BSseeker2/bs_seeker2-call_methylation.py', '-i', bam, '-o', bam.rstrip(".bam"), '--sorted', '-d', '/data2/Fshare/FastaAndIndex/bs_seeker2_index/161010_Chinese_Spring_v1.0_pseudomolecules_parts.fasta_bowtie2/', '-x'], shell=False)
     proc.wait()
-    print ('Finsh mapping ' + bam)
+    print ('Finish mapping ' + bam)
 
     
 if __name__ == '__main__':
