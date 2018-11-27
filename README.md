@@ -51,7 +51,7 @@ if __name__ == '__main__':
             print (anti)       
             proc = subprocess.Popen(['seqkit','seq','-p','-r','-j', '16', '-o', anti, 'fastq/' + li], shell=False)
             proc.wait()
-            print ('Finsh antisense')
+            print ('Finish antisense')
             proc = subprocess.Popen(['seqkit', 'split', '-p', '10', '-j', '10', '-O', dir0, anti], shell=False)
             proc.wait()
         infiles = ['001','002','003','004','005','006','007','008','009','010']
