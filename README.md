@@ -4,7 +4,7 @@
 The data used in this study came from [SRP133674](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA436361). If you use this data in your study, you could refer this information.  International Wheat Genome Sequencing Consortium (IWGSC). et al., "Shifting the limits in wheat research and breeding using a fully annotated reference genome.", Science, 2018 Aug 16;361(6403)
 
 #### Download data
-we can get website of fastq files from [PRJNA436361](https://www.ebi.ac.uk/ena/data/view/PRJNA436361) and saved it in download.txt
+we can get website of fastq files from [PRJNA436361](https://www.ebi.ac.uk/ena/data/view/PRJNA436361) and save it in download.txt
 ```shell
 for i in $(cat download.txt); do axel -n 20 -a $i; done
 ```
